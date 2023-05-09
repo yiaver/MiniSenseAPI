@@ -1,0 +1,373 @@
+openapi: 3.0.0
+
+info:
+  title: API de monitoramento de dispositivos IOT
+  description: Com essa API e possivel fazer o monitoramento  de dispositivos IOT e Criação de novos dispositivos IOT que estão atrelados a um usuario, cada usuario pode ter inumeros dispositivos e cada dispositivo pode ter inumeras streams que por sua vez podem ter inumeros registros.
+  version : 0.0.1
+servers:   
+  - url: http://localhost:5000
+
+components:
+  schemas:
+  
+    Error404:
+      type: object
+      properties:
+        message:
+         type: string
+        status:
+         type: integer
+    
+    streamData:
+      type: object
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: number
+        value:
+          type: string
+        unitId:
+          type: integer
+    
+    newStream:
+      type: object
+      properties: 
+        label:
+          type: string
+        unitId:
+          type: integer
+    
+    NewStreamResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        unitId:
+          type: integer
+        deviceId:
+          type: integer
+        measurementCount:
+          type: integer
+         
+    CreateNewSensorDevice:
+      type: object 
+      properties:
+        label:
+          type: string
+        description:
+          type: string
+    
+    LastFiveResults:
+      type: object
+      properties:
+        tiemstamp:
+          type: number
+        value:
+          type: string
+        
+  
+    StreamWithLastFiveResults:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        unitId:
+          type: integer
+        measurementCount:
+          type: integer
+        measurements:
+          type: array
+          items:
+            $ref: "#/components/schemas/LastFiveResults"
+
+    DeviceWithLastFiveStreamsInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+        streams:
+          type: array
+          items:
+            $ref : "#/components/schemas/StreamWithLastFiveResults"
+    
+    NewSensorDeviceCreated:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+         
+    MensurementUnists:
+      type: object
+      properties:
+        id:
+          type: integer
+        symbol:
+          type: string
+        description:
+          type: string
+          
+    Stream:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        unitId:
+          type: integer
+        deviceId:
+          type: integer
+        measurementCount:
+          type: integer
+          
+    Device:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stream'
+    
+    MultipleDevices:
+      type: array
+      items:
+          $ref: '#/components/schemas/Device'
+          
+    
+    
+
+paths:
+  /MensurementUnits:
+    get:
+      summary: Retorna todos os  mensurament units (Unidades de medida)
+      description: ao fazer um requisição GET nesse endpoint voce recebe um json com todas as unidades de medida registradas no servidor.
+      responses:
+        200:
+          description: Json recebido
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MensurementUnists"
+        404:
+          description: No Mensurement Units
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+  
+  /UserDevice/{SensorDeviceKey}:
+     get:
+      summary: Retorna um json com informações de um device especifico
+      description: Ao fazer uma requisição GET nesse endpoint você recebe un json com informações de um sensor device especifico, e necessário ter a SensorDeviceKey para ter acesso as informações de qualquer sensor device.
+      parameters:
+        - name: SensorDeviceKey
+          in: path
+          description: Key do sensor device
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceWithLastFiveStreamsInfo"
+                
+          
+        404:
+          description: This Sensor Device Do not Exist
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+  
+  /UserDevice/Stream/{StreamKey}:
+    get:
+      summary: Retorna um json com as informações de uma stream de um sensor especifico
+      description: Ao fazer uma requisição GET nesse endpoint você recebe um json com informações de uma stream especifica , e necessário ter a StreamKey para ter acesso as informações de qualque stream.
+      parameters:
+        - name: StreamKey
+          in: path
+          description: Key da Stream De deteminado Sensor Device
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StreamWithLastFiveResults"
+                
+          
+        404:
+          description: This Stream Do not Exist
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+      
+  
+  /UserDevices/{user}:
+    get:
+      summary: Retornas um json com todos os sensor devices de um usuario
+      description: Ao fazer uma requisição GET nesse endpoint e possivel obter um json com as informações de um usuario especifico , necessário ter o nome do usuario para ter acesso as informações de qualquer usuario.
+      parameters:
+        - name: user
+          in: path
+          description: O nome do usuário
+          required: true
+          schema:
+            type: string
+            
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MultipleDevices"
+                
+          
+        404:
+          description: User not found or No User Info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+  
+  /NewDevice/{user}:
+     post:
+      summary: Cria um novo sensor device associado ao usuario
+      description: Ao fazer uma requisição POST enviando um json valido para esse endpoint você ira registrar um novo sensor device para um usuario especifico, e necessário ter o nome do usuario ao qual o sensor device pertence.
+      parameters:
+        - name: user
+          in: path
+          description: O nome do usuário
+          required: true
+          schema:
+            type: string
+            
+      requestBody:
+        description: Sensor device a ser criado
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewSensorDevice'
+      responses:
+        '201':
+          description: Device created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewSensorDeviceCreated'
+        '400':
+          description: Invalid JSON
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+  
+  /NewStream/SensorKey/{SensorKey}:
+    post:
+      summary: Cia uma nova stream para um sensor especifico
+      description: Ao Fazer uma requisição POST enviando um json valido para esse endpoint voce ira registrar uma nova stream para um sensor device especifico, e necessário ter uma SensorKey valida para que o registro ocorra com sucesso.
+      parameters:
+        - name: SensorKey
+          in: path
+          description: A key do sensor device
+          required: true
+          schema:
+            type: string
+            
+      requestBody:
+        description: Stream a ser criada
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newStream'
+            
+      responses:
+        '201':
+          description: Stream created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewStreamResponse'
+        '400':
+          description: Invalid JSON
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
+  
+  /StreamData/StreamKey/{StreamKey}:
+    post:
+      summary: Cria um novo dado para uma Stream
+      description: Ao fazer uma requisição POST enviando um json valido para esse endpoint você ira registar um novo Stream Data em uma stream especifica, e necessário ter uma StreamKey valida para que o registro ocorra com sucesso.
+      parameters:
+        - name: StreamKey
+          in: path
+          description: A key da Stream
+          required: true
+          schema:
+            type: string
+            
+      requestBody:
+        description: Stream a ser criada
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LastFiveResults'
+      
+      responses:
+        '201':
+          description: Stream created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/streamData'
+        '400':
+          description: Invalid JSON
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error404"
