@@ -1,4 +1,2 @@
-ApiRestFul.txt
-.env
-/api prova
+.gitignore
 __pycache__
