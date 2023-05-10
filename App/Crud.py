@@ -140,6 +140,7 @@ class CRUD():
     
     
     def create_new_device(self,user:str,label:str,description:str):
+        """ Cria um novo Sensor Device para um usuario """
         try:
             #gerando key aleatoria
             randkey_new_device = f"{uuid.uuid4()}".replace("-","")
@@ -160,6 +161,7 @@ class CRUD():
 
    
     def create_new_stream(self,sensorKey:str,label:str,unitId:int):
+        """ Cria uma nova Stream para um Sensor Device """
         try:
             #registro no banco de dados
             randkey_new_device = f"{uuid.uuid4()}".replace("-","")
@@ -181,6 +183,7 @@ class CRUD():
         
     
     def create_new_stream_data(self,streamKey:str,timeStamp:int,value:float):
+        """ Cria um novo  dado para uma stream"""
         try:
             #registro no banco de dados
             mensurementUnitId = self.findFirstOne("MensurementUnitID","devicestream","Akey",streamKey)
