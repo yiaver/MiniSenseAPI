@@ -6,6 +6,9 @@ import uuid
 logging.basicConfig(level=logging.ERROR, format='%(levelname)s %(asctime)s - %(message)s')
 #voltar aqui e tratar possiveis erros
 
+class ErrosPersonalizados(Exception):
+    def __init__(self, mensagem):
+        self.mensagem = mensagem
 
 class CRUD():
     def __init__(self,user:str,password:str,host:str,database:str) -> None:
@@ -13,12 +16,29 @@ class CRUD():
         self.password =password
         self.host = host
         self.database = database
+        #tratando erros de conexão e informarções erradas com o servidor
+        try:
+            connection = mysql.connector.connect(user=self.user,password=self.password,host=self.host,database=self.database)
+            cursor = connection.cursor()
+            test_database = f"USE {database};"
+            cursor.execute(test_database)
+
+            if None in (user,database,password,host):
+                raise ErrosPersonalizados("None type Error")
+            
+            print(f"++++ Conectado com sucesso a {database} como {user} no host {host} ++++")
+            connection.close()
+        
+        except Exception as err:
+            print(f"XXXX user, database, host == {[user,database,host]} XXXX")
+            logging.error(f"XXXXX Connection error : {err} XXXXXX")
+
         #criando key aleatoria com letras e numeros 
 
     @property    
     def randkey(self):
         return self.__randomKey
-    
+
     
     
     def shall_not_pass(self,obj):
