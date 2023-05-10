@@ -30,8 +30,8 @@ class CRUD():
             connection.close()
         
         except Exception as err:
-            print(f"XXXX user, database, host == {[user,database,host]} XXXX")
-            logging.error(f"XXXXX Connection error : {err} XXXXXX")
+            print(f"\n ERROR .env Received INFO : \nuser = {user}\ndatabase = {database}\nhost = {host}\n")
+            logging.error(f"\n Connection ERROR : {err} \n ")
 
         #criando key aleatoria com letras e numeros 
 
