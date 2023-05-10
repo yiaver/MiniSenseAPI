@@ -168,9 +168,9 @@ components:
           
 tags:
   - name: GETs
-    description: Todos os endpoints abaixo so aceitam requisições GET
+    description: Coleta de dados
   - name : POSTs
-    description: Todos os endpoints abaixo so aceitam requisições POST
+    description: Criação de novos dados 
 
 paths:
   
