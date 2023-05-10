@@ -342,7 +342,7 @@
     },
     "/UserDevices/{user}": {
       "get": {
-        "summary": "Retornas um json com todos os sensor devices de um usuario",
+        "summary": "Retorna um json com todos os sensor devices de um usuario",
         "description": "Ao fazer uma requisição GET nesse endpoint e possivel obter um json com as informações de um usuario especifico , necessário ter o nome do usuario para ter acesso as informações de qualquer usuario.",
         "parameters": [
           {
