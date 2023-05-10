@@ -18,5 +18,5 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
 PASSWORD = MySqlserverPassWord(aqui vai a senha do servidor)
 USER = MySqlUser ( aqui o ususario)
 HOST = Your host here ( aqui o host , se for localhost no windows o default e 127.0.0.1 )
-DATABASE = your database here (aqui vai a database que você vai usar)
+DATABASE = your database here (aqui vai a database que você vai usar que no caso e a iot_server )
 ```
