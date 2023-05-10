@@ -212,6 +212,7 @@ class CRUD():
         
     
     def read_mensurement_units(self):
+        "Retorna uma lista com todas as Mensurement Units"
         try:
             #criar logica de coleta de informações do banco de dados
             connection = mysql.connector.connect(user=self.user,password=self.password,host=self.host,database=self.database)
@@ -242,6 +243,7 @@ class CRUD():
         
     
     def read_user_devices(self,user):
+        "Retorna uma lista com informaçoes de todos os Sensor Device de um usuario"
         try:
             #criar logica de coleta de informações do banco de dados
             user_devices_api_return = [{}]
@@ -301,6 +303,7 @@ class CRUD():
 
     
     def read_user_device(self,sensorkey):
+        """Retorna uma lista com todas as informações de um dispositivo especifico"""
         try:
             devices = self.findAllInARow("sensordevice","Akey",sensorkey)
             deviceid=0
@@ -378,6 +381,7 @@ class CRUD():
     
 
     def read_device_stream(self,streamkey):
+        """Retorna uma lista com todas as informações de uma Stream especifica"""
         try:
             #criar logica de coleta de informações do banco de dados
             #adicionando as informações das streams ao json (streams)
