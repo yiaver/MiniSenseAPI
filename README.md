@@ -11,7 +11,7 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
   - apos criar o ambiente emtre nele com os comandos do seu Sistema operacional.
 - Apos ter instalado o python3 corretamente instale as bibliotecas necessarias com:
 `pip3 install -r requirements.txt`
-- MySQL Server Version = 8.0.33 
+- Instale um servidor MySQL Server Version = 8.0.33 , caso queira instale tambem a MySQL Workbench para configurar a database com o script a baixo.
 - Necessario a instalação da iot_server database em seu server para o funcionamento da api, o arquivo sql que configura a database esta em `/App/MySQL Server Config` e um script sql so e necessario rodar ele no seu server e a database ja vai estar configurada.
 - Conecte-se ao banco de dados preenchendo as informações do .env:
 ```
