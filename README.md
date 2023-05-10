@@ -20,3 +20,4 @@ USER = MySqlUser ( aqui o ususario)
 HOST = Your host here ( aqui o host , se for localhost no windows o default e 127.0.0.1 )
 DATABASE = your database here (aqui vai a database que você vai usar que no caso e a iot_server )
 ```
+- Caso tudo ocora bem a conexão com o banco de dados sera feita , sem nenhum problema e você podera usufluir de tudo que a api tem .
