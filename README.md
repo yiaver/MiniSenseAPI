@@ -31,5 +31,9 @@ DATABASE = your database here (aqui vai a database que você vai usar que no cas
     /UserDevice/SensorDeviceKey : Retorna um json com informações de um device especifico ( necessario ter a SensorDeviceKey)<br>
     /UserDevice/Stream/StreamKey : Retorna um json com as informações de uma stream de um sensor especifico ( necessario ter a StreamKey)<br>
   - POST:<br>
+    /NewDevice/user: Cria um novo sensor device associado ao usuario .(necessario um usuario existente)<br>
+    /NewStream/SensorKey/SensorKey : Cria uma nova stream para um sensor especifico . (necessario ter a SensorKey)<br>
+    /StreamData/StreamKey/StreamKey : Cria um novo dado para uma Stream . (necessario ter a StreamKey)
+    
     
   
