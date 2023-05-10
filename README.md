@@ -36,14 +36,14 @@ Certifique-se de preencher essas informações corretamente, para que a API poss
 - A documentação de como usar a api esta na pasta `/App/docs` usando swagger ou Redoc voce pode visualizar de forma detalhada todas as funcionalidades e os requerimentos para usar todos os endpoints dessa API.
 - Abaixo um breve resumo de cada endpoint:
   - GET:<br>
-    /MensurementUnits : Retorna todos os  mensurament units (Unidades de medida)<br>
-    /UserDevices/user: Retornas um json com todos os sensor devices de um usuario ( necessario o nome do usuario)<br>
-    /UserDevice/SensorDeviceKey : Retorna um json com informações de um device especifico ( necessario ter a SensorDeviceKey)<br>
-    /UserDevice/Stream/StreamKey : Retorna um json com as informações de uma stream de um sensor especifico ( necessario ter a StreamKey)<br>
+    `/MensurementUnits` : Retorna todos os  mensurament units (Unidades de medida)<br>
+    `/UserDevices/user`: Retornas um json com todos os sensor devices de um usuario ( necessario o nome do usuario)<br>
+    `/UserDevice/SensorDeviceKey` : Retorna um json com informações de um device especifico ( necessario ter a SensorDeviceKey)<br>
+    `/UserDevice/Stream/StreamKey` : Retorna um json com as informações de uma stream de um sensor especifico ( necessario ter a StreamKey)<br>
   - POST:<br>
-    /NewDevice/user: Cria um novo sensor device associado ao usuario .(necessario um usuario existente)<br>
-    /NewStream/SensorKey/SensorKey : Cria uma nova stream para um sensor especifico . (necessario ter a SensorKey)<br>
-    /StreamData/StreamKey/StreamKey : Cria um novo dado para uma Stream . (necessario ter a StreamKey)
+    `/NewDevice/user` : Cria um novo sensor device associado ao usuario .(necessario um usuario existente)<br>
+    `/NewStream/SensorKey/SensorKey` : Cria uma nova stream para um sensor especifico . (necessario ter a SensorKey)<br>
+    `/StreamData/StreamKey/StreamKey` : Cria um novo dado para uma Stream . (necessario ter a StreamKey)
     
     
   
