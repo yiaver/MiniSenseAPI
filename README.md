@@ -2,7 +2,7 @@
 Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi feita para o MiniSense
 
 # Instalation :
--Instale o Python 3.11.2
+-Instale o Python 3.0.0 ou superior
 - Link oficial do python de como instalar no Windows <a>https://python.org.br/instalacao-windows/</a> .
 - Link oficial do python de como instalar no Linux <a>https://python.org.br/instalacao-linux/</a> .
 - (OPICIONAL):
@@ -11,15 +11,25 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
   - apos criar o ambiente emtre nele com os comandos do seu Sistema operacional.
 - Apos ter instalado o python3 corretamente instale as bibliotecas necessarias com:
 `pip3 install -r requirements.txt`
-- Instale um servidor MySQL Server Version = 8.0.33 , caso queira instale tambem a MySQL Workbench para configurar a database com o script a baixo.
-- Necessario a instalação da iot_server database em seu server para o funcionamento da api, o arquivo sql que configura a database esta em `/App/MySQL Server Config` e um script sql so e necessario rodar ele no seu server e a database ja vai estar configurada.
-- Conecte-se ao banco de dados preenchendo as informações do .env:
+
+# Conexão ao banco de dados:
+Para usar a API, é necessário se conectar a um banco de dados MySQL  versão 8.0.33 . Para se conectar, você precisará preencher as seguintes informações no arquivo .env:
+
+- PASSWORD: a senha do servidor de banco de dados.
+- USER: o nome de usuário do banco de dados.
+- HOST: o endereço do servidor de banco de dados (por exemplo, localhost ou 127.0.0.1).
+- DATABASE: o nome do banco de dados que você deseja usar (neste caso, iot_server).
+
+Aqui está um exemplo de como preencher o arquivo .env:
+``` 
+PASSWORD=senha_do_servidor
+USER=nome_de_usuario
+HOST=endereco_do_servidor
+DATABASE=iot_server
 ```
-PASSWORD = MySqlserverPassWord(aqui vai a senha do servidor)
-USER = MySqlUser ( aqui o ususario)
-HOST = Your host here ( aqui o host , se for localhost no windows o default e 127.0.0.1 )
-DATABASE = your database here (aqui vai a database que você vai usar que no caso e a iot_server )
-```
+
+Certifique-se de preencher essas informações corretamente, para que a API possa se conectar ao banco de dados com sucesso , lembrando que o arquivo .env tem que estar na mesma pasta de `app.py`.
+- Necessario a instalação da iot_server database em seu server para o funcionamento da api, o arquivo sql que configura a database esta em `/App/MySQL Server Config`  ele e um script sql , so e necessario rodar ele no seu server e a database ja vai estar configurada.
 - Caso tudo ocora bem a conexão com o banco de dados sera feita , sem nenhum problema e você podera usufruir de tudo que a api tem.
 
 # Usage:
