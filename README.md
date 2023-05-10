@@ -34,6 +34,7 @@ Certifique-se de preencher essas informações corretamente, para que a API poss
 
 # Usage:
 - Para ligar a API e necessario que o banco de dados esteja ativo e configurado de acordo com as instruções acima , apos isso basta iniciar o app.py .
+  - no Windows `python.exe .\app.py` estrando na mesma pasta do arquivo app.py.
 - A documentação de como usar a api esta na pasta `/App/docs` usando swagger ou Redoc voce pode visualizar de forma detalhada todas as funcionalidades e os requerimentos para usar todos os endpoints dessa API.
 - Abaixo um breve resumo de cada endpoint:
   - GET:<br>
