@@ -306,7 +306,7 @@ paths:
   
   /NewStream/SensorKey/{SensorKey}:
     post:
-      summary: Cia uma nova stream para um sensor especifico
+      summary: Cria uma nova stream para um sensor especifico
       description: Ao Fazer uma requisição POST enviando um json valido para esse endpoint voce ira registrar uma nova stream para um sensor device especifico, e necessário ter uma SensorKey valida para que o registro ocorra com sucesso.
       parameters:
         - name: SensorKey
