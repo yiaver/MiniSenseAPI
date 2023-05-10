@@ -84,7 +84,7 @@ def get_device_stream(StreamKey):
 
 @app.route("/NewDevice/<string:user>",methods=["POST"])
 def create_new_device(user):
-    """ Recebe um label e uma description  e retorna um json com as informações do Sensor device ja registrado"""
+    """ Recebe um label e uma description via json  e retorna um json com as informações do Sensor device ja registrado"""
     data = request.get_json()
     if "label" in data[0] and "description" in data[0]:
         label = data[0]["label"]
