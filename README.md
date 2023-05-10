@@ -24,7 +24,7 @@ DATABASE = your database here (aqui vai a database que você vai usar que no cas
 
 # Usage:
 - A documentação de como usar a api esta na pasta `/App/docs` usando swagger ou Redoc voce pode visualizar de forma detalhada todas as funcionalidades e os requerimentos para usar todos os endpoints dessa API.
-- A baxo um breve resumo de cada endpoint:
+- Abaixo um breve resumo de cada endpoint:
   - GET:<br>
     /MensurementUnits : Retorna todos os  mensurament units (Unidades de medida)<br>
     /UserDevices/user: Retornas um json com todos os sensor devices de um usuario ( necessario o nome do usuario)<br>
