@@ -84,6 +84,7 @@ def get_device_stream(StreamKey):
 
 @app.route("/NewDevice/<string:user>",methods=["POST"])
 def create_new_device(user):
+    """ Recebe um label e uma description  e retorna um json com as informações do Sensor device ja registrado"""
     data = request.get_json()
     if "label" in data[0] and "description" in data[0]:
         label = data[0]["label"]
@@ -97,7 +98,7 @@ def create_new_device(user):
 @app.route("/NewStream/SensorKey/<string:SensorKey>",methods=["POST"])
 def create_new_stream (SensorKey):
     """ recebe um json com lebel e unitId registra no banco e retorna o registro com id,key,unitID,deviceId,mensurementCount,
-    necessário ter o nome do usuario e a key do dispositivo"""
+    necessário ter o nome do usuario e a key do dispositivo o retorno vai em json"""
     
     data = request.get_json()
     if "label" in data[0] and "unitId" in data[0]:
@@ -111,8 +112,8 @@ def create_new_stream (SensorKey):
 
 @app.route("/NewStreamData/StreamKey/<string:StreamKey>",methods=["POST"])
 def create_new_stream_data(StreamKey):
-    """ recebe um timestemp e um valor e registra e retorna id,timestamp, valor e unitId ,
-    necessário ter o nome do usuario , a key do dispositivo e a key da stream"""
+    """ recebe um timestemp e um valor registra e retorna id,timestamp, valor e unitId ,
+    necessário ter o nome do usuario , a key do dispositivo e a key da stream o retorno vai em json"""
 
     data = request.get_json()
     if "timestamp" in data[0] and "value" in data[0]:
