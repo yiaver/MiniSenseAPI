@@ -166,12 +166,18 @@ components:
       items:
           $ref: '#/components/schemas/Device'
           
-    
-    
+tags:
+  - name: GETs
+    description: Todos os endpoints abaixo so aceitam requisições GET
+  - name : POSTs
+    description: Todos os endpoints abaixo so aceitam requisições POST
 
 paths:
+  
   /MensurementUnits:
     get:
+      tags:
+      - GETs
       summary: Retorna todos os  mensurament units (Unidades de medida)
       description: ao fazer um requisição GET nesse endpoint voce recebe um json com todas as unidades de medida registradas no servidor.
       responses:
@@ -190,6 +196,8 @@ paths:
   
   /UserDevice/{SensorDeviceKey}:
      get:
+      tags:
+      - GETs
       summary: Retorna um json com informações de um device especifico
       description: Ao fazer uma requisição GET nesse endpoint você recebe un json com informações de um sensor device especifico, e necessário ter a SensorDeviceKey para ter acesso as informações de qualquer sensor device.
       parameters:
@@ -217,6 +225,8 @@ paths:
   
   /UserDevice/Stream/{StreamKey}:
     get:
+      tags:
+      - GETs
       summary: Retorna um json com as informações de uma stream de um sensor especifico
       description: Ao fazer uma requisição GET nesse endpoint você recebe um json com informações de uma stream especifica , e necessário ter a StreamKey para ter acesso as informações de qualque stream.
       parameters:
@@ -245,6 +255,8 @@ paths:
   
   /UserDevices/{user}:
     get:
+      tags:
+      - GETs
       summary: Retorna um json com todos os sensor devices de um usuario
       description: Ao fazer uma requisição GET nesse endpoint e possivel obter um json com as informações de um usuario especifico , necessário ter o nome do usuario para ter acesso as informações de qualquer usuario.
       parameters:
@@ -273,6 +285,8 @@ paths:
   
   /NewDevice/{user}:
      post:
+      tags:
+      - POSTs
       summary: Cria um novo sensor device associado ao usuario
       description: Ao fazer uma requisição POST enviando um json valido para esse endpoint você ira registrar um novo sensor device para um usuario especifico, e necessário ter o nome do usuario ao qual o sensor device pertence.
       parameters:
@@ -306,6 +320,8 @@ paths:
   
   /NewStream/SensorKey/{SensorKey}:
     post:
+      tags:
+      - POSTs
       summary: Cria uma nova stream para um sensor especifico
       description: Ao Fazer uma requisição POST enviando um json valido para esse endpoint voce ira registrar uma nova stream para um sensor device especifico, e necessário ter uma SensorKey valida para que o registro ocorra com sucesso.
       parameters:
@@ -340,6 +356,8 @@ paths:
   
   /StreamData/StreamKey/{StreamKey}:
     post:
+      tags:
+      - POSTs
       summary: Cria um novo dado para uma Stream
       description: Ao fazer uma requisição POST enviando um json valido para esse endpoint você ira registar um novo Stream Data em uma stream especifica, e necessário ter uma StreamKey valida para que o registro ocorra com sucesso.
       parameters:
