@@ -33,6 +33,7 @@ Certifique-se de preencher essas informações corretamente, para que a API poss
 - Caso tudo ocora bem a conexão com o banco de dados sera feita , sem nenhum problema e você podera usufruir de tudo que a api tem.
 
 # Usage:
+- Para ligar a API e necessario que o banco de dados esteja ativo e configurado de acordo com as instruções acima , apos isso basta iniciar o app.py .
 - A documentação de como usar a api esta na pasta `/App/docs` usando swagger ou Redoc voce pode visualizar de forma detalhada todas as funcionalidades e os requerimentos para usar todos os endpoints dessa API.
 - Abaixo um breve resumo de cada endpoint:
   - GET:<br>
