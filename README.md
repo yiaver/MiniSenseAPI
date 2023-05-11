@@ -13,7 +13,7 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
 `pip3 install -r requirements.txt`
 
 # Conexão ao banco de dados:
-Para usar a API, é necessário se conectar a um banco de dados MySQL  versão 8.0.33 . Para se conectar, você precisará preencher as seguintes informações no arquivo .env:
+Para usar a API, é necessário se conectar a um banco de dados MySQL  versão 8.0.33 , caso queira instale o mySQL Workbench para rodar o script de configuração da database iot_server . Para se conectar, você precisará preencher as seguintes informações no arquivo .env:
 
 - PASSWORD: a senha do servidor de banco de dados.
 - USER: o nome de usuário do banco de dados.
