@@ -5,7 +5,7 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
 -Instale o Python 3.0.0 ou superior
 - Link oficial do python de como instalar no Windows <a>https://python.org.br/instalacao-windows/</a> .
 - Link oficial do python de como instalar no Linux <a>https://python.org.br/instalacao-linux/</a> .
-- Verifique a instalação rodando ```python --version``` .
+- Verifique a instalação do python rodando ```python --version``` e a do pip rodando ```pip --version``` .
 - (OPICIONAL):
   - Caso queira voce pode criar um ambiente virtual para armazenar as bibliotecas.
   - Link oficial do python de como criar um ambiente virtual <a>https://docs.python.org/pt-br/3/library/venv.html</a>
