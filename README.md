@@ -2,7 +2,7 @@
 Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi feita para o MiniSense
 
 # Instalation :
--Instale o Python 3.0.0 ou superior
+-Instale o Python3 ou superior
 - Link oficial do python de como instalar no Windows <a>https://python.org.br/instalacao-windows/</a> .
 - Link oficial do python de como instalar no Linux <a>https://python.org.br/instalacao-linux/</a> .
 - Verifique a instalação do python rodando ```python --version``` e a do pip rodando ```pip --version``` .
