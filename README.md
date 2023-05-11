@@ -3,12 +3,12 @@ Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi fei
 
 # Instalation :
 -Instale o Python3 ou superior
-- Link oficial do python de como instalar no Windows <a>https://python.org.br/instalacao-windows/</a> .
-- Link oficial do python de como instalar no Linux <a>https://python.org.br/instalacao-linux/</a> .
+- Link oficial do python de como instalar no  <a href="https://python.org.br/instalacao-windows/">Windows</a> .
+- Link oficial do python de como instalar no  <a href="https://python.org.br/instalacao-linux/">Linux</a> .
 - Verifique a instalação do python rodando ```python --version``` e a do pip rodando ```pip --version``` .
 - (OPICIONAL):
   - Caso queira voce pode criar um ambiente virtual para armazenar as bibliotecas.
-  - Link oficial do python de como criar um ambiente virtual <a>https://docs.python.org/pt-br/3/library/venv.html</a>
+  - Link oficial do python de como criar um ambiente virtual <a href="https://docs.python.org/pt-br/3/library/venv.html">venv</a> .
   - apos criar o ambiente emtre nele com os comandos do seu Sistema operacional.
 - Apos ter instalado o python3 corretamente instale as bibliotecas necessarias com:
 ```pip3 install -r requirements.txt```
@@ -37,6 +37,8 @@ Certifique-se de preencher essas informações corretamente, para que a API poss
 - Para ligar a API e necessario que o banco de dados esteja ativo e configurado de acordo com as instruções acima , apos isso basta iniciar o app.py .
   - no Windows ```python.exe .\app.py``` estando na mesma pasta do arquivo app.py.
 - A documentação de como usar a api esta na pasta `/App/docs` usando swagger ou Redoc voce pode visualizar de forma detalhada todas as funcionalidades e os requerimentos para usar todos os endpoints dessa API.
+  - Link do <a href="https://editor.swagger.io/">Swagger Editor</a>.
+  - Link do <a href="https://redocly.github.io/redoc">Redoc</a> .
 - Abaixo um breve resumo de cada endpoint:
   - GET:<br>
     `/MensurementUnits` : Retorna um json com todas as  mensurament units (Unidades de medida)<br>
