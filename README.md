@@ -1,5 +1,5 @@
 # # API_de_monitoramento_de_dispositivos_IOT
-Nesse repositorio se encontra a API de monitoramento de sistemas IOT que foi feita para o MiniSense
+Nesse repositorio se encontra a API de Gerenciamento de sistemas IOT que foi feita para o MiniSense.
 
 # Instalation :
 -Instale o Python3 ou superior
