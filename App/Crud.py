@@ -4,7 +4,6 @@ import logging
 import uuid 
 
 logging.basicConfig(level=logging.ERROR, format='%(levelname)s %(asctime)s - %(message)s')
-#voltar aqui e tratar possiveis erros
 
 class ErrosPersonalizados(Exception):
     def __init__(self, mensagem):
@@ -214,7 +213,7 @@ class CRUD():
     def read_mensurement_units(self):
         "Retorna uma lista com todas as Mensurement Units"
         try:
-            #criar logica de coleta de informações do banco de dados
+            
             connection = mysql.connector.connect(user=self.user,password=self.password,host=self.host,database=self.database)
             cursor = connection.cursor()
             cursor.execute("select * from mensurementunit;")
@@ -245,7 +244,7 @@ class CRUD():
     def read_user_devices(self,user):
         "Retorna uma lista com informaçoes de todos os Sensor Device de um usuario"
         try:
-            #criar logica de coleta de informações do banco de dados
+            
             user_devices_api_return = [{}]
             userid = self.findFirstOne("userId","user","name",user)
             devices = self.findAllInARow("sensordevice","user_userID",userid)
@@ -366,15 +365,10 @@ class CRUD():
                                     else:
                                         continue
                         
-
-
-                
-                
-                #falta iterar e colocar as info no json
                 return user_device_api_return
             else:
                 return user_device_api_return
-            #criar logica de coleta de informações do banco de dados
+            
         except Exception as err:
             logging.error(f"Error in {self.read_user_device.__name__} : {err}")
 
@@ -383,7 +377,7 @@ class CRUD():
     def read_device_stream(self,streamkey):
         """Retorna uma lista com todas as informações de uma Stream especifica"""
         try:
-            #criar logica de coleta de informações do banco de dados
+            
             #adicionando as informações das streams ao json (streams)
             device_stream_api_return = []
             streams = self.findAllInARow("devicestream","Akey",streamkey)
